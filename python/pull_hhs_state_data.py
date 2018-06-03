@@ -11,7 +11,7 @@
 # In[1]:
 
 
-# Dependencies
+# Import Dependencies
 import requests
 import json
 import numpy as np
@@ -29,6 +29,7 @@ url = "https://fluvaccineapi.hhs.gov/api/v2/ids/2017/states.json"
 
 
 # Create the lsit of state codes, removing Distict of Columbia and Puerto Rico.
+# Analysis will only include continental 50 states
 state_codes = requests.get(url).json()
 state_codes.remove('DC')
 state_codes.remove('PR')

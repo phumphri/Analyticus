@@ -11,7 +11,7 @@
 # In[3]:
 
 
-# Dependencies
+# Import Dependencies
 import requests
 import json
 import numpy as np
@@ -35,7 +35,7 @@ for year_entry in year_list:
 # In[5]:
 
 
-# Inspect the HHS data just downloaded into a dataframe.
+# Inspect the HHS data, just downloaded into a dataframe.
 df1.head()
 
 
@@ -71,7 +71,7 @@ df3 = df2[['count', 'percentage', 'year', 'week']]
 # In[10]:
 
 
-# Rename columns to match the CCD data
+# Rename columns to match the CCD data, vac_percent for eligible population
 df4 = df3.rename(columns={"count":"vaccinations", "percentage":"vac_percent"})
 
 
@@ -122,7 +122,7 @@ df5.head()
 
 # Calculate vaccination rate percentage per week 
 # by finding the difference in the culmulative vaccination
-# rate between weeks.
+# rate between weeks. Loop through week
 for index_entry in df5.index:
     if df5.loc[index_entry, 'week'] == 1:
         df5.loc[index_entry, 'vac_pct_week'] = df5.loc[index_entry, 'vac_percent']
